@@ -1,5 +1,9 @@
 package utility.excel;
 
+import java.math.BigDecimal;
+
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -29,7 +33,12 @@ public class ExcelReader {
 	}
 	
 	public String get(int row, int col) {
-		return this.sheet.getRow(row-1).getCell(col - 1).toString();
+		XSSFCell cell = this.sheet.getRow(row-1).getCell(col-1);
+		if(cell.getCellType() == CellType.NUMERIC) {
+			return String.valueOf(new BigDecimal(cell.getNumericCellValue()));
+		} else {
+			return cell.toString();
+		}
 	}
 	
 	public void close() throws Exception{
@@ -37,7 +46,7 @@ public class ExcelReader {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		ExcelReader reader = new ExcelReader(Global.getBaseDatasetPath() + "dfc_score.xlsx");
+		ExcelReader reader = new ExcelReader(Global.getBaseDatasetPath() + "dfc_score - 副本.xlsx");
 		
 		for(int i=10; i<69; i++) {
 			System.out.print(reader.getRawNum(i, 1) + " ");
