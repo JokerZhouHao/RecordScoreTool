@@ -1,6 +1,7 @@
 package entity;
 
 public class Student {
+	private String number = "";
 	private String id = "";
 	private String name = "";
 	private String score = "";
@@ -22,6 +23,15 @@ public class Student {
 		this.id = id;
 		this.name = name;
 		this.score = score;
+	}
+
+	
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public String getId() {
