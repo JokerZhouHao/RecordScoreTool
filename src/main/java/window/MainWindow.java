@@ -261,10 +261,10 @@ public class MainWindow {
 	 * @param numStu 学生数
 	 * @throws Exception
 	 */
-	public MainWindow(String filePath, int startRow, int startCol, int numStu) throws Exception{
+	public MainWindow(String filePath, int startRow, int startCol, int scoreCol, int numStu) throws Exception{
 		initGobalFont(globalFont);
 		
-		this.stuTableModel = new StudentTableModel(filePath, startRow, startCol, numStu);
+		this.stuTableModel = new StudentTableModel(filePath, startRow, startCol, scoreCol, numStu);
 		this.dataTable = new JTable(stuTableModel);
 		
 		this.frame = new JFrame("学生分数录入");
@@ -290,6 +290,16 @@ public class MainWindow {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 59).show();
+		// 第三次
+//		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 10, 59).show();
+		// 第四次
+//		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 11, 59).show();
+		// 第五次
+//		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 12, 59).show();
+		// 第6次
+//		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 13, 59).show();
+		
+		// 期末基本成绩
+		new MainWindow(Global.baseDatasetPath + "dfc_score.xlsx", 10, 2, 20, 59).show();
 	}
 }

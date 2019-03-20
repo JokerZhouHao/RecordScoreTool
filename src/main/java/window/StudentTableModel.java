@@ -26,11 +26,11 @@ public class StudentTableModel extends AbstractTableModel {
 	 * @param numStu 学生数
 	 * @throws Exception
 	 */
-	public StudentTableModel(String filePath, int startRow, int startCol, int numStu) throws Exception{
-		this.init(filePath, startRow, startCol, numStu);
+	public StudentTableModel(String filePath, int startRow, int startCol, int scoreCol, int numStu) throws Exception{
+		this.init(filePath, startRow, startCol, scoreCol, numStu);
 	}
 	
-	private void init(String filePath, int startRow, int startCol, int numStu) throws Exception{
+	private void init(String filePath, int startRow, int startCol, int scoreCol, int numStu) throws Exception{
 		colNames.add("序号");
 		colNames.add("学号");
 		colNames.add("姓名");
@@ -44,6 +44,7 @@ public class StudentTableModel extends AbstractTableModel {
 			stu.setNumber(String.valueOf(counter + 1));
 			stu.setId(reader.get(row, startCol));
 			stu.setName(reader.get(row, startCol + 1));
+			stu.setScore(reader.get(row, scoreCol));
 			this.stus.add(stu);
 			id2Row.put(stu.getId(), counter);
 			counter++;
