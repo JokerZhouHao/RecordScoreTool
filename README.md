@@ -5,4 +5,4 @@
 win10 + jdk1.8，如果碰到软件打不开什么的，那可能是环境不匹配。
 
 ### 截图
-![软件截图](https://raw.githubusercontent.com/JokerZhouHao/RecordScoreTool/master/data/imgs/ui.png)
+![软件截图](https://github.com/JokerZhouHao/RecordScoreTool/blob/master/data/ui.png)
